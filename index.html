@@ -55,7 +55,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
-      margin: 16px 0 8px;
+      margin: 12px 0 8px;
     }
     .pill{
       display: flex;
@@ -67,6 +67,7 @@
       background: #0f1722;
       color: var(--text);
       flex-wrap: wrap;
+      word-break: break-word;
     }
     .pill code {
       word-break: break-all;
@@ -162,13 +163,12 @@
             <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
       </ol>
 
-      <h2>5) First‑Time Setup (Your Servers)</h2>
+      <h2>5) First‑Time Setup</h2>
       <ol>
         <li>Start <strong>TeamSpeak 3</strong> first.</li>
         <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
         <li>Start <strong>Arma 3</strong> with TFAR enabled.</li>
         <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></li>
-        <li>Connect to our Discord: <code>https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></li>
         <li>On success, TeamSpeak should display: “Task Force Radio connected to game”.</li>
       </ol>
 
