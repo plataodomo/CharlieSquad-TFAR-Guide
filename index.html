@@ -56,11 +56,12 @@
       flex-wrap: wrap;
       gap: 12px;
       margin: 12px 0 8px;
-      justify-content: center; /* center pills horizontally */
+      justify-content: center;
     }
     .pill{
       display: flex;
-      align-items: center;
+      flex-direction: column; /* This is the key change for vertical stacking */
+      align-items: flex-start; /* This aligns items to the left */
       justify-content: space-between;
       gap: 10px;
       padding: 10px 16px;
@@ -68,11 +69,11 @@
       border-radius: 30px;
       background: #0f1722;
       color: var(--text);
-      min-width: 220px;
+      min-width: 250px; /* Adjusted minimum width */
       max-width: 300px;
       font-size: 0.85rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      flex: 1 1 220px;
+      flex: 1 1 250px;
     }
     .pill code {
       word-break: break-all;
@@ -97,7 +98,12 @@
       padding: 4px 8px;
       font-size: 0.75rem;
     }
-    .row{ display:flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .row{
+      display:flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
     .kbd{
       font-size: .85rem; padding: .2rem .5rem; border-radius: 6px;
       box-shadow: inset 0 -2px 0 rgba(255,255,255,.03);
@@ -125,9 +131,27 @@
       <p class="sub">For Arma 3 · Charlie Squad</p>
 
       <div class="grid">
-        <div class="pill">TeamSpeak: <code id="ts">CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></div>
-        <div class="pill">Arma 3 Server: <code id="arma">85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></div>
-        <div class="pill">Discord: <code id="discord">https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></div>
+        <div class="pill">
+          <span>TeamSpeak:</span>
+          <div class="row">
+            <code id="ts">CharlieSquad.4npserver.com</code>
+            <button class="btn secondary" data-copy="#ts">Copy</button>
+          </div>
+        </div>
+        <div class="pill">
+          <span>Arma 3 Server:</span>
+          <div class="row">
+            <code id="arma">85.14.210.14:22500</code>
+            <button class="btn secondary" data-copy="#arma">Copy</button>
+          </div>
+        </div>
+        <div class="pill">
+          <span>Discord:</span>
+          <div class="row">
+            <code id="discord">https://discord.gg/pFk7F8ygYV</code>
+            <button class="btn secondary" data-copy="#discord">Copy</button>
+          </div>
+        </div>
       </div>
 
       <h2 id="reqs">1) Requirements</h2>
