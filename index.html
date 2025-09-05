@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,9 +58,15 @@
       margin: 16px 0 8px;
     }
     .pill{
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px;
-      background: #0f1722; color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #0f1722;
+      color: var(--text);
+      flex-wrap: wrap;
     }
     .btn{
       display: inline-flex; align-items: center; justify-content: center;
@@ -75,6 +80,8 @@
     .btn.secondary{
       background: transparent; color: var(--text);
       border: 1px solid var(--border); font-weight: 600;
+      padding: 4px 8px;
+      font-size: 0.8rem;
     }
     .row{ display:flex; flex-wrap: wrap; align-items: center; gap: 10px; }
     .kbd{
@@ -106,6 +113,7 @@
       <div class="grid">
         <div class="pill">TeamSpeak: <code id="ts">CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></div>
         <div class="pill">Arma 3 Server: <code id="arma">85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></div>
+        <div class="pill">Discord: <code id="discord">https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></div>
       </div>
 
       <div class="row" style="margin:12px 0 8px;">
@@ -156,6 +164,7 @@
         <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
         <li>Start <strong>Arma 3</strong> with TFAR enabled.</li>
         <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></li>
+        <li>Connect to our Discord: <code>https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></li>
         <li>On success, TeamSpeak should display: “Task Force Radio connected to game”.</li>
       </ol>
 
@@ -170,7 +179,7 @@
         Tip: Keep TeamSpeak open before launching Arma so TFAR can hook immediately.
       </div>
 
-      <p class="footer">© Charlie Squad • https://discord.gg/pFk7F8ygYV.</p>
+      <p class="footer">© Charlie Squad • Made by plataodomo.</p>
     </div>
   </div>
 
