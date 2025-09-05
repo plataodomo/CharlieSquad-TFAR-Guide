@@ -1,205 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TFAR (BETA!!!) Installation Guide — Charlie Squad</title>
-  <meta name="description" content="Step-by-step installation guide for Task Force Arrowhead Radio (BETA!!!) for Arma 3 with Charlie Squad server details." />
-  <style>
-    :root{
-      --bg: #0b0f14;
-      --card: #121923;
-      --muted: #9fb0c3;
-      --text: #e8eef6;
-      --accent: #5cc8ff;
-      --accent-2: #7ef0c8;
-      --border: #223043;
-      --shadow: rgba(0,0,0,.35);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji;
-      line-height: 1.6;
-      color: var(--text);
-      background: radial-gradient(1200px 600px at 80% -20%, rgba(124,200,255,.08), transparent 60%) ,
-                  radial-gradient(900px 500px at 10% 120%, rgba(126,240,200,.08), transparent 60%) ,
-                  var(--bg);
-    }
-    .container{
-      max-width: 920px;
-      margin: 48px auto;
-      padding: 0 16px;
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px var(--shadow);
-      padding: 28px;
-    }
-    h1{ font-size: 1.9rem; margin: 0 0 12px; letter-spacing: .2px; }
-    .sub{ color: var(--muted); margin-top: 0; margin-bottom: 22px; }
-    h2{ font-size: 1.35rem; margin-top: 28px; padding-top: 8px; border-top: 1px dashed var(--border); }
-    code, pre, .kbd{
-      background: #0a121b;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: .15rem .4rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      color: #d7e6ff;
-    }
-    pre { padding: .9rem 1rem; overflow: auto; }
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin: 16px 0 8px;
-    }
-    .pill{
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #0f1722;
-      color: var(--text);
-      flex-wrap: wrap;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TFAR (BETA!!!) Installation Guide — Charlie Squad</title>
+  <meta name="description" content="Step-by-step installation guide for Task Force Arrowhead Radio (BETA!!!) for Arma 3 with Charlie Squad server details." />
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: #121923;
+      --muted: #9fb0c3;
+      --text: #e8eef6;
+      --accent: #5cc8ff;
+      --accent-2: #7ef0c8;
+      --border: #223043;
+      --shadow: rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji;
+      line-height: 1.6;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -20%, rgba(124,200,255,.08), transparent 60%) ,
+                  radial-gradient(900px 500px at 10% 120%, rgba(126,240,200,.08), transparent 60%) ,
+                  var(--bg);
+    }
+    .container{
+      max-width: 920px;
+      margin: 48px auto;
+      padding: 0 16px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px var(--shadow);
+      padding: 28px;
+    }
+    h1{ font-size: 1.9rem; margin: 0 0 12px; letter-spacing: .2px; }
+    .sub{ color: var(--muted); margin-top: 0; margin-bottom: 22px; }
+    h2{ font-size: 1.35rem; margin-top: 28px; padding-top: 8px; border-top: 1px dashed var(--border); }
+    code, pre, .kbd{
+      background: #0a121b;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .15rem .4rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #d7e6ff;
+    }
+    pre { padding: .9rem 1rem; overflow: auto; }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin: 16px 0 8px;
+    }
+    .pill{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #0f1722;
+      color: var(--text);
+      flex-wrap: wrap;
+    }
     .pill code {
       word-break: break-all;
     }
-    .btn{
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; padding: 10px 14px; border-radius: 12px; cursor: pointer;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      color: #001019; font-weight: 700; border: none;
-      transition: transform .05s ease, filter .2s ease;
-      text-decoration: none;
-    }
-    .btn:active{ transform: translateY(1px); }
-    .btn.secondary{
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border); font-weight: 600;
-      padding: 4px 8px;
-      font-size: 0.8rem;
-    }
-    .row{ display:flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-    .kbd{
-      font-size: .95rem; padding: .2rem .5rem; border-radius: 6px;
-      box-shadow: inset 0 -2px 0 rgba(255,255,255,.03);
-    }
-    ul{ margin: .5rem 0 1rem 1.1rem; }
-    li{ margin: .25rem 0; }
-    .footer{ color: var(--muted); font-size: .9rem; margin-top: 16px; text-align: center; }
-    .callout{
-      background: #0e151f;
-      border-left: 3px solid var(--accent);
-      padding: 10px 12px;
-      border-radius: 12px;
-    }
-    @media print{
-      body{ background: white; }
-      .card{ box-shadow: none; border-color: #dcdcdc; }
-      .btn{ display: none !important; }
-    }
-  </style>
+    .btn{
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 10px 14px; border-radius: 12px; cursor: pointer;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #001019; font-weight: 700; border: none;
+      transition: transform .05s ease, filter .2s ease;
+      text-decoration: none;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn.secondary{
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); font-weight: 600;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+    }
+    .row{ display:flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .kbd{
+      font-size: .95rem; padding: .2rem .5rem; border-radius: 6px;
+      box-shadow: inset 0 -2px 0 rgba(255,255,255,.03);
+    }
+    ul{ margin: .5rem 0 1rem 1.1rem; }
+    li{ margin: .25rem 0; }
+    .footer{ color: var(--muted); font-size: .9rem; margin-top: 16px; text-align: center; }
+    .callout{
+      background: #0e151f;
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+    @media print{
+      body{ background: white; }
+      .card{ box-shadow: none; border-color: #dcdcdc; }
+      .btn{ display: none !important; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Task Force Arrowhead Radio (BETA!!!) — Installation Guide</h1>
-      <p class="sub">For Arma 3 · Charlie Squad</p>
+  <div class="container">
+    <div class="card">
+      <h1>Task Force Arrowhead Radio (BETA!!!) — Installation Guide</h1>
+      <p class="sub">For Arma 3 · Charlie Squad</p>
 
-      <div class="grid">
-        <div class="pill">TeamSpeak: <code id="ts">CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></div>
-        <div class="pill">Arma 3 Server: <code id="arma">85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></div>
-        <div class="pill">Discord: <code id="discord">https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></div>
-      </div>
+      <div class="grid">
+        <div class="pill">TeamSpeak: <code id="ts">CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></div>
+        <div class="pill">Arma 3 Server: <code id="arma">85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></div>
+        <div class="pill">Discord: <code id="discord">https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></div>
+      </div>
 
-      <div class="row" style="margin:12px 0 8px;">
-        <a class="btn" href="#steps">Jump to Steps</a>
-        <button class="btn secondary" id="print">Print / Save PDF</button>
-      </div>
+      <div class="row" style="margin:12px 0 8px;">
+        <a class="btn" href="#steps">Jump to Steps</a>
+        <button class="btn secondary" id="print">Print / Save PDF</button>
+      </div>
 
-      <h2 id="reqs">1) Requirements</h2>
-      <ul>
-        <li><strong>Arma 3</strong></li>
-        <li><strong>TeamSpeak 3 (64-bit)</strong></li>
-        <li><strong>Arma 3 Launcher</strong> (comes with the game)</li>
-        <li><em>Optional</em>: <strong>Arma 3 Tools</strong> from Steam</li>
-      </ul>
+      <h2 id="reqs">1) Requirements</h2>
+      <ul>
+        <li><strong>Arma 3</strong></li>
+        <li><strong>TeamSpeak 3 (64-bit)</strong></li>
+        <li><strong>Arma 3 Launcher</strong> (comes with the game)</li>
+        <li><em>Optional</em>: <strong>Arma 3 Tools</strong> from Steam</li>
+      </ul>
 
-      <h2 id="steps">2) Download & Install TFAR (BETA!!!)</h2>
-      <ol>
-        <li>Open <strong>Steam</strong>.</li>
-        <li>Go to the <strong>Arma 3 Workshop</strong>.</li>
-        <li>Search for <strong>Task Force Arrowhead Radio (BETA!!!)</strong>.</li>
-        <li>Click <strong>Subscribe</strong>. The mod will download to:<br/>
-          <code>...\Steam\steamapps\workshop\content\107410\620019431</code>
-        </li>
-      </ol>
+      <h2 id="steps">2) Download & Install TFAR (BETA!!!)</h2>
+      <ol>
+        <li>Open <strong>Steam</strong>.</li>
+        <li>Go to the <strong>Arma 3 Workshop</strong>.</li>
+        <li>Search for <strong>Task Force Arrowhead Radio (BETA!!!)</strong>.</li>
+        <li>Click <strong>Subscribe</strong>. The mod will download to:<br/>
+          <code>...\Steam\steamapps\workshop\content\107410\620019431</code>
+        </li>
+      </ol>
 
-      <h2>3) Enable the Mod in Arma 3</h2>
-      <ol>
-        <li>Launch the <strong>Arma 3 Launcher</strong>.</li>
-        <li>Open the <strong>Mods</strong> tab.</li>
-        <li>Find <strong>@Task Force Arrowhead Radio (BETA!!!)</strong>.</li>
-        <li>Tick it to load with the game (consider saving a preset).</li>
-      </ol>
+      <h2>3) Enable the Mod in Arma 3</h2>
+      <ol>
+        <li>Launch the <strong>Arma 3 Launcher</strong>.</li>
+        <li>Open the <strong>Mods</strong> tab.</li>
+        <li>Find <strong>@Task Force Arrowhead Radio (BETA!!!)</strong>.</li>
+        <li>Tick it to load with the game (consider saving a preset).</li>
+      </ol>
 
-      <h2>4) Install the TeamSpeak Plugin</h2>
-      <ol>
-        <li>Open the TFAR mod folder (right‑click in Launcher → <em>Open Folder</em>) or go to:<br/>
-          <code>...\Steam\steamapps\workshop\content\107410\620019431</code></li>
-        <li>Open: <code>@Task Force Arrowhead Radio (BETA!!!)\teamspeak</code></li>
-        <li>Double‑click <code>task_force_radio.ts3_plugin</code>.</li>
-        <li>Approve the install in TeamSpeak, then <strong>restart TeamSpeak</strong>.</li>
-        <li>In TeamSpeak: <span class="kbd">Tools → Options → Addons → Plugins</span> → ensure
-            <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
-      </ol>
+      <h2>4) Install the TeamSpeak Plugin</h2>
+      <ol>
+        <li>Open the TFAR mod folder (right‑click in Launcher → <em>Open Folder</em>) or go to:<br/>
+          <code>...\Steam\steamapps\workshop\content\107410\620019431</code></li>
+        <li>Open: <code>@Task Force Arrowhead Radio (BETA!!!)\teamspeak</code></li>
+        <li>Double‑click <code>task_force_radio.ts3_plugin</code>.</li>
+        <li>Approve the install in TeamSpeak, then <strong>restart TeamSpeak</strong>.</li>
+        <li>In TeamSpeak: <span class="kbd">Tools → Options → Addons → Plugins</span> → ensure
+            <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
+      </ol>
 
-      <h2>5) First‑Time Setup (Your Servers)</h2>
-      <ol>
-        <li>Start <strong>TeamSpeak 3</strong> first.</li>
-        <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
-        <li>Start <strong>Arma 3</strong> with TFAR enabled.</li>
-        <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></li>
-        <li>Connect to our Discord: <code>https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></li>
-        <li>On success, TeamSpeak should display: “Task Force Radio connected to game”.</li>
-      </ol>
+      <h2>5) First‑Time Setup (Your Servers)</h2>
+      <ol>
+        <li>Start <strong>TeamSpeak 3</strong> first.</li>
+        <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
+        <li>Start <strong>Arma 3</strong> with TFAR enabled.</li>
+        <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></li>
+        <li>Connect to our Discord: <code>https://discord.gg/pFk7F8ygYV</code> <button class="btn secondary" data-copy="#discord">Copy</button></li>
+        <li>On success, TeamSpeak should display: “Task Force Radio connected to game”.</li>
+      </ol>
 
-      <h2>6) Troubleshooting</h2>
-      <ul>
-        <li><strong>No TFAR popup in TS?</strong> Plugin not installed or not enabled.</li>
-        <li><strong>Game ↔ TS not syncing?</strong> Ensure TeamSpeak is <strong>64‑bit</strong> (same as Arma).</li>
-        <li><strong>Missing keybinds?</strong> In Arma: <span class="kbd">Controls → Configure Addons → TFAR</span> to set radio keys.</li>
-      </ul>
+      <h2>6) Troubleshooting</h2>
+      <ul>
+        <li><strong>No TFAR popup in TS?</strong> Plugin not installed or not enabled.</li>
+        <li><strong>Game ↔ TS not syncing?</strong> Ensure TeamSpeak is <strong>64‑bit</strong> (same as Arma).</li>
+        <li><strong>Missing keybinds?</strong> In Arma: <span class="kbd">Controls → Configure Addons → TFAR</span> to set radio keys.</li>
+      </ul>
 
-      <div class="callout">
-        Tip: Keep TeamSpeak open before launching Arma so TFAR can hook immediately.
-      </div>
+      <div class="callout">
+        Tip: Keep TeamSpeak open before launching Arma so TFAR can hook immediately.
+      </div>
 
-      <p class="footer">© Charlie Squad • Made by plataodomo.</p>
-    </div>
-  </div>
+      <p class="footer">© Charlie Squad • Made by plataodomo.</p>
+    </div>
+  </div>
 
-  <script>
-    document.querySelectorAll("[data-copy]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = document.querySelector(btn.getAttribute("data-copy"));
-        if (!target) return;
-        const text = target.textContent.trim();
-        navigator.clipboard.writeText(text).then(() => {
-          const original = btn.textContent;
-          btn.textContent = "Copied!";
-          setTimeout(() => btn.textContent = "Copy", 900);
-        });
-      });
-    });
-    document.getElementById("print").addEventListener("click", () => window.print());
-  </script>
+  <script>
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = document.querySelector(btn.getAttribute("data-copy"));
+        if (!target) return;
+        const text = target.textContent.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => btn.textContent = "Copy", 900);
+        });
+      });
+    });
+    document.getElementById("print").addEventListener("click", () => window.print());
+  </script>
 </body>
 </html>
