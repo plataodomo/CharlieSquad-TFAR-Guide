@@ -188,6 +188,30 @@
       animation: fadeIn 2s ease;
     }
 
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f14;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      border-radius: 10px;
+      border: 2px solid #0b0f14;
+      box-shadow: 0 0 8px rgba(92,200,255,0.4);
+      transition: all 0.3s ease;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      box-shadow: 0 0 12px rgba(126,240,200,0.7);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #0b0f14;
+    }
+
     @media print{
       body{ background: white; }
       .card{ box-shadow: none; border-color: #dcdcdc; }
@@ -253,16 +277,16 @@
 
       <h2>4) Install the TeamSpeak Plugin</h2>
       <ol>
-        <li>Open the TFAR mod folder (right‑click in Launcher → <em>Open Folder</em>) or go to:<br/>
+        <li>Open the TFAR mod folder (right-click in Launcher → <em>Open Folder</em>) or go to:<br/>
           <code>...\Steam\steamapps\workshop\content\107410\620019431</code></li>
         <li>Open: <code>@Task Force Arrowhead Radio (BETA!!!)\teamspeak</code></li>
-        <li>Double‑click <code>task_force_radio.ts3_plugin</code>.</li>
+        <li>Double-click <code>task_force_radio.ts3_plugin</code>.</li>
         <li>Approve the install in TeamSpeak, then <strong>restart TeamSpeak</strong>.</li>
         <li>In TeamSpeak: <span class="kbd">Tools → Options → Addons → Plugins</span> → ensure
             <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
       </ol>
 
-      <h2>5) First‑Time Setup</h2>
+      <h2>5) First-Time Setup</h2>
       <ol>
         <li>Start <strong>TeamSpeak 3</strong> first.</li>
         <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
@@ -274,7 +298,7 @@
       <h2>6) Troubleshooting</h2>
       <ul>
         <li><strong>No TFAR popup in TS?</strong> Plugin not installed or not enabled.</li>
-        <li><strong>Game ↔ TS not syncing?</strong> Ensure TeamSpeak is <strong>64‑bit</strong> (same as Arma).</li>
+        <li><strong>Game ↔ TS not syncing?</strong> Ensure TeamSpeak is <strong>64-bit</strong> (same as Arma).</li>
         <li><strong>Missing keybinds?</strong> In Arma: <span class="kbd">Controls → Configure Addons → TFAR</span> to set radio keys.</li>
       </ul>
 
