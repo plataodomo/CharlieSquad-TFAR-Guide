@@ -6,7 +6,7 @@
   <title>TFAR (BETA!!!) Installation Guide — Charlie Squad</title>
   <meta name="description" content="Step-by-step installation guide for Task Force Arrowhead Radio (BETA!!!) for Arma 3 with Charlie Squad server details." />
   <style>
-    :root{
+    :root {
       --bg: #0b0f14;
       --card: #121923;
       --muted: #9fb0c3;
@@ -18,7 +18,7 @@
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body{
+    body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji;
       line-height: 1.6;
@@ -26,27 +26,25 @@
       background: var(--bg);
       overflow-x: hidden;
     }
-
-    /* Animated galaxy-like background */
-    body::before{
+    body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 200%; height: 200%;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
       background: radial-gradient(circle at 30% 30%, rgba(124,200,255,0.12), transparent 60%),
                   radial-gradient(circle at 70% 70%, rgba(126,240,200,0.12), transparent 60%),
                   radial-gradient(circle at 50% 90%, rgba(255,200,150,0.1), transparent 70%);
       animation: bgMove 40s linear infinite;
       z-index: -2;
     }
-    @keyframes bgMove{
+    @keyframes bgMove {
       0% { transform: translate(0,0) scale(1); }
       50% { transform: translate(-5%, -5%) scale(1.1); }
       100% { transform: translate(0,0) scale(1); }
     }
-
-    /* Floating stars */
-    .star{
+    .star {
       position: fixed;
       background: white;
       border-radius: 50%;
@@ -54,19 +52,17 @@
       animation: twinkle 5s infinite alternate;
       z-index: -1;
     }
-    @keyframes twinkle{
+    @keyframes twinkle {
       from { opacity: 0.2; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1.2); }
     }
-
-    .container{
+    .container {
       max-width: 920px;
       margin: 48px auto;
       padding: 0 16px;
       animation: fadeIn 1.2s ease;
     }
-
-    .card{
+    .card {
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -74,21 +70,18 @@
       padding: 28px;
       animation: slideUp 1s ease;
     }
-
-    @keyframes fadeIn{
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @keyframes slideUp{
+    @keyframes slideUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    h1{ font-size: 1.9rem; margin: 0 0 12px; letter-spacing: .2px; }
-    .sub{ color: var(--muted); margin-top: 0; margin-bottom: 22px; font-size: 0.95rem; }
-    h2{ font-size: 1.35rem; margin-top: 28px; padding-top: 8px; border-top: 1px dashed var(--border); }
-
-    code, pre, .kbd{
+    h1 { font-size: 1.9rem; margin: 0 0 12px; letter-spacing: .2px; }
+    .sub { color: var(--muted); margin-top: 0; margin-bottom: 22px; font-size: 0.95rem; }
+    h2 { font-size: 1.35rem; margin-top: 28px; padding-top: 8px; border-top: 1px dashed var(--border); }
+    code, pre, .kbd {
       background: #0a121b;
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -97,21 +90,19 @@
       color: #d7e6ff;
     }
     pre { padding: .9rem 1rem; overflow: auto; }
-
-    .grid{
+    .grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
       margin: 12px 0 8px;
       justify-content: center;
     }
-    .pill{
+    .pill {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 16px;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 16px;
       border: 1px solid var(--border);
       border-radius: 30px;
       background: #0f1722;
@@ -121,102 +112,63 @@
       font-size: 0.85rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       flex: 1 1 250px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: center;
+      height: 110px;
+      position: relative;
     }
-    .pill:hover{
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    .pill span {
+      font-weight: bold;
+      font-size: 1rem;
     }
-
     .pill code {
-      word-break: break-all;
-      font-size: 0.85rem;
-      background: #121923;
-      padding: 2px 6px;
-      border-radius: 6px;
+      display: block;
+      word-break: break-word;
+      margin-top: 4px;
     }
 
-    .btn{
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; padding: 10px 14px; border-radius: 12px; cursor: pointer;
+    /* ✅ Default copy button style */
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      cursor: pointer;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      color: #001019; font-weight: 700; border: none;
-      transition: transform .2s ease, filter .3s ease, box-shadow .3s ease;
+      color: #001019;
+      font-weight: 700;
+      border: none;
+      font-size: 0.8rem;
       text-decoration: none;
-      font-size: 0.85rem;
+      transition: transform .2s ease, filter .3s ease, box-shadow .3s ease;
+      margin-left: 6px;
+      position: relative;
     }
-    .btn:hover{
+    .copy-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 12px rgba(94, 200, 255, 0.6);
       filter: brightness(1.05);
     }
-    .btn:active{ transform: scale(0.97); }
 
-    .btn.secondary{
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border); font-weight: 600;
-      padding: 4px 8px;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-      transition: background .3s ease, color .3s ease;
+    /* ✅ Special styling for pill buttons */
+    .pill .copy-btn {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-left: 0;
     }
-    .btn.secondary:hover{
-      background: var(--accent);
-      color: #001019;
-    }
-
-    .row{
-      display:flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .kbd{
-      font-size: .85rem; padding: .2rem .5rem; border-radius: 6px;
-      box-shadow: inset 0 -2px 0 rgba(255,255,255,.03);
+    .pill .copy-btn:hover {
+      transform: translateX(-50%) translateY(-2px) scale(1.08);
+      box-shadow: 0 0 12px rgba(94, 200, 255, 0.6);
+      filter: brightness(1.05);
     }
 
-    ul{ margin: .5rem 0 1rem 1.1rem; }
-    li{ margin: .25rem 0; }
-
-    .footer{ color: var(--muted); font-size: .9rem; margin-top: 16px; text-align: center; }
-    .callout{
-      background: #0e151f;
-      border-left: 3px solid var(--accent);
-      padding: 10px 12px;
-      border-radius: 12px;
-      animation: fadeIn 2s ease;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0b0f14;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
-      border-radius: 10px;
-      border: 2px solid #0b0f14;
-      box-shadow: 0 0 8px rgba(92,200,255,0.4);
-      transition: all 0.3s ease;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, var(--accent-2), var(--accent));
-      box-shadow: 0 0 12px rgba(126,240,200,0.7);
-    }
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) #0b0f14;
-    }
-
-    @media print{
-      body{ background: white; }
-      .card{ box-shadow: none; border-color: #dcdcdc; }
-      .btn{ display: none !important; }
-    }
+    a.link-hover { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); transition: color 0.3s ease, border-color 0.3s ease; }
+    a.link-hover:hover { color: var(--accent-2); border-color: var(--accent-2); }
+    .footer { color: var(--muted); font-size: .9rem; margin-top: 16px; text-align: center; }
+    .callout { background: #0e151f; border-left: 3px solid var(--accent); padding: 10px 12px; border-radius: 12px; animation: fadeIn 2s ease; }
   </style>
 </head>
 <body>
@@ -228,24 +180,20 @@
       <div class="grid">
         <div class="pill">
           <span>TeamSpeak:</span>
-          <div class="row">
-            <code id="ts">CharlieSquad.4npserver.com</code>
-            <button class="btn secondary" data-copy="#ts">Copy</button>
-          </div>
+          <code id="ts">CharlieSquad.4npserver.com</code>
+          <button class="copy-btn" data-copy="#ts">Copy</button>
         </div>
+
         <div class="pill">
           <span>Arma 3 Server:</span>
-          <div class="row">
-            <code id="arma">85.14.210.14:22500</code>
-            <button class="btn secondary" data-copy="#arma">Copy</button>
-          </div>
+          <code id="arma">85.14.210.14:22500</code>
+          <button class="copy-btn" data-copy="#arma">Copy</button>
         </div>
+
         <div class="pill">
           <span>Discord:</span>
-          <div class="row">
-            <code id="discord">https://discord.gg/pFk7F8ygYV</code>
-            <button class="btn secondary" data-copy="#discord">Copy</button>
-          </div>
+          <code id="discord">https://discord.gg/pFk7F8ygYV</code>
+          <button class="copy-btn" data-copy="#discord">Copy</button>
         </div>
       </div>
 
@@ -254,17 +202,14 @@
         <li><strong>Arma 3</strong></li>
         <li><strong>TeamSpeak 3 (64-bit)</strong></li>
         <li><strong>Arma 3 Launcher</strong> (comes with the game)</li>
-        <li><em>Optional</em>: <strong>Arma 3 Tools</strong> from Steam</li>
       </ul>
 
       <h2 id="steps">2) Download & Install TFAR (BETA!!!)</h2>
       <ol>
         <li>Open <strong>Steam</strong>.</li>
         <li>Go to the <strong>Arma 3 Workshop</strong>.</li>
-        <li>Search for <strong>Task Force Arrowhead Radio (BETA!!!)</strong>.</li>
-        <li>Click <strong>Subscribe</strong>. The mod will download to:<br/>
-          <code>...\Steam\steamapps\workshop\content\107410\620019431</code>
-        </li>
+        <li>Search for <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=894678801" class="link-hover" target="_blank"><strong>Task Force Arrowhead Radio (BETA!!!)</strong></a>.</li>
+        <li>Click <strong>Subscribe</strong>. The mod will download to:<br/> <code>...\Steam\steamapps\workshop\content\107410\620019431</code> </li>
       </ol>
 
       <h2>3) Enable the Mod in Arma 3</h2>
@@ -277,21 +222,20 @@
 
       <h2>4) Install the TeamSpeak Plugin</h2>
       <ol>
-        <li>Open the TFAR mod folder (right-click in Launcher → <em>Open Folder</em>) or go to:<br/>
-          <code>...\Steam\steamapps\workshop\content\107410\620019431</code></li>
+        <li>Open the TFAR mod folder (right-click in Launcher → <em>Open Folder</em>) or go to:<br/> <code>...\Steam\steamapps\workshop\content\107410\620019431</code></li>
         <li>Open: <code>@Task Force Arrowhead Radio (BETA!!!)\teamspeak</code></li>
         <li>Double-click <code>task_force_radio.ts3_plugin</code>.</li>
         <li>Approve the install in TeamSpeak, then <strong>restart TeamSpeak</strong>.</li>
-        <li>In TeamSpeak: <span class="kbd">Tools → Options → Addons → Plugins</span> → ensure
-            <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
+        <li>In TeamSpeak: <span class="kbd">Tools → Options → Addons → Plugins</span> → ensure <em>Task Force Arrowhead Radio</em> is <strong>enabled</strong>.</li>
       </ol>
 
       <h2>5) First-Time Setup</h2>
       <ol>
+        <li><a class="copy-btn" href="https://files.teamspeak-services.com/releases/client/3.6.2/TeamSpeak3-Client-win64-3.6.2.exe" target="_blank">⬇ Download TeamSpeak 3 (64-bit)</a></li>
         <li>Start <strong>TeamSpeak 3</strong> first.</li>
-        <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="btn secondary" data-copy="#ts">Copy</button></li>
+        <li>Connect to our TS server: <code>CharlieSquad.4npserver.com</code> <button class="copy-btn" data-copy="#ts">Copy</button></li>
         <li>Start <strong>Arma 3</strong> with TFAR enabled.</li>
-        <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="btn secondary" data-copy="#arma">Copy</button></li>
+        <li>Join our Arma server: <code>85.14.210.14:22500</code> <button class="copy-btn" data-copy="#arma">Copy</button></li>
         <li>On success, TeamSpeak should display: “Task Force Radio connected to game”.</li>
       </ol>
 
@@ -300,6 +244,7 @@
         <li><strong>No TFAR popup in TS?</strong> Plugin not installed or not enabled.</li>
         <li><strong>Game ↔ TS not syncing?</strong> Ensure TeamSpeak is <strong>64-bit</strong> (same as Arma).</li>
         <li><strong>Missing keybinds?</strong> In Arma: <span class="kbd">Controls → Configure Addons → TFAR</span> to set radio keys.</li>
+        <li><strong>Still having problems?</strong> Ask for help in our <a href="https://discord.gg/pFk7F8ygYV" class="link-hover" target="_blank">Discord server</a>.</li>
       </ul>
 
       <div class="callout">
@@ -311,7 +256,6 @@
   </div>
 
   <script>
-    // Copy buttons
     document.querySelectorAll("[data-copy]").forEach(btn => {
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.getAttribute("data-copy"));
@@ -325,7 +269,6 @@
       });
     });
 
-    // Generate random stars
     for (let i = 0; i < 40; i++) {
       const star = document.createElement("div");
       star.className = "star";
